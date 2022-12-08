@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Universidad Django</title>
+  </head>
+
+  <body>
+    <h1>Sistema universitario Django</h1>
+
+    <div>
+      <p>Carreras disponibles: {{total_carreras}}</p>
+    </div>
+
+    <a href="agregar_carrera/">Agregar carreras</a>
+
+    <table border="1">
+      
+      <thead>
+        <tr>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Duración</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {%for carrera in carreras%}
+        <tr>
+          <td>{{carrera.Codigo}}</td>
+          <td>{{carrera.Nombre}}</td>
+          <td>{{carrera.Duracion}}</td>
+          <td><a href="">Ver estudiantes</a></td>
+          <td><a href="eliminar_carrera/{{carrera.Codigo}}">Eliminar carrera</a></td>
+          <td><a href="editar_carrera/{{carrera.Codigo}}">Editar carrera</a></td>
+        </tr>
+        {%endfor%}
+      </tbody>
+
+    </table>
+  </body>
+</html>

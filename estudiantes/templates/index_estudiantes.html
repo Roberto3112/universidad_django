@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudiantes</title>
+</head>
+<body>
+    <p>Número de estudiantes: {{num_estudiantes}}</p>
+    <a href="{%url 'agregar'%}">Agregar estudiante</a>
+    
+    <table border="1">
+        <th>Cédula</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Codigo de carrera</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+
+        {%for estudiante in estudiantes%}
+        <tr>
+            <td>{{estudiante.Cedula}}</td>
+            <td>{{estudiante.Nombres}}</td>
+            <td>{{estudiante.Apellido_paterno}} {{estudiante.Apellido_materno}}</td>
+            <td>{{estudiante.CodigoCarrera}}</td>
+            <td><a href="eliminar_estudiante/{{estudiante.Cedula}}">Eliminar estudiante</a></td>
+        </tr>   
+        {%endfor%}
+
+    </table>
+
+</body>
+</html>

@@ -9,7 +9,7 @@ class Carrera(models.Model):
     Duracion = models.IntegerField(max_length=10)
 
     def __str__(self) -> str:
-        return f'Codigo: {self.Codigo} Nombre: {self.Nombre} Duración: {self.Duracion}'
+        return f'{self.Codigo} - {self.Nombre}'
 
 #* Estudiantes
 class Estudiantes(models.Model):

@@ -15,12 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from uniapp.views import index,nueva_carrera, eliminar_carrera, editar_carrera
+from uniapp.views import *
+from estudiantes.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index,name='index'),
-    path('agregar_carrera/',nueva_carrera),
+    # Carrera
+    path('agregar_carrera/',nueva_carrera,name='nueva_carrera'),
     path('eliminar_carrera/<int:Codigo>',eliminar_carrera),
-    path('editar_carrera/<int:Codigo>',editar_carrera)
+    path('editar_carrera/<int:Codigo>',editar_carrera),
+
+    #Estudiantes
+    path('estudiantes/',listado_estudiantes,name = 'estudiantes'),
+    path('agregar_estudiante/', nuevo_estudiante,name = 'agregar'),
+    path('estudiantes/eliminar_estudiante/<int:Cedula>',eliminar_estudiante),
 ]

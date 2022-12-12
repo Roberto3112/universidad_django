@@ -7,14 +7,29 @@
     <title>Editar carrera</title>
 </head>
 <body>
-    <h1>Editar carrera</h1>
-    
-    <form method="POST">
-        <table>
-            {{carreraform}}
-        </table>
 
-    </form>
+  <h1>Editar carrera</h1>
 
-</body>
+  <form method="POST">
+
+    {%csrf_token%}
+  <div>
+      {{carreraForm.Codigo}}
+  </div><br>
+
+  <div>
+      {{carreraForm.Nombre}}
+  </div><br>
+
+  <div>
+      {{carreraForm.Duracion}}
+  </div><br>  
+
+  <button type="submit">Enviar</button>
+  </form>
+
+  <a href="{%url 'index'%}">Volver a inicio</a>
+
+  </body>
 </html>
+

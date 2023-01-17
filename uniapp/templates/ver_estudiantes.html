@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver estudiantes</title>
+</head>
+<body>
+
+    {%if listaEstudiantes|length_is:'0' %}
+    <h1>No hay estudiantes registrados en la carrera de: {{carrera.Nombre}}</h1>
+
+    {%else%}
+    <h1>Estudiantes registrados en la carrera de: {{carrera.Nombre}}</h1>
+    
+        <table border="1">
+            <th>Matricula</th>
+            <th>Nombres</th>    
+            <th>Apellidos</th>
+
+            {%for estudiante in estudiantes%}
+            {%if estudiante.CodigoCarrera_id == carrera.Codigo%}
+            <tr>
+                <td>{{estudiante.Matricula}}</td>
+                <td>{{estudiante.Nombres}}</td>
+                <td>{{estudiante.Apellido_paterno}} {{estudiante.Apellido_materno}}</td>
+            </tr>
+            {%endif%}
+            {%endfor%}
+        </table>
+    {%endif%}
+
+    <a href="{%url 'index'%}">Volver a inicio</a>
+    
+</body>
+</html>

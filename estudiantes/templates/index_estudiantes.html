@@ -7,30 +7,31 @@
     <title>Estudiantes</title>
 </head>
 <body>
+    <h1>Estudiantes registrados en la universidad</h1>
+
     <p>Número de estudiantes: {{num_estudiantes}}</p>
     <a href="{%url 'agregar'%}">Agregar estudiante</a>
     
     <table border="1">
-        <th>Cédula</th>
+        <th>Matricula</th>
         <th>Nombre</th>
         <th>Apellidos</th>
-        <th>Codigo de carrera</th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>Carrera</th>
         <th></th>
 
         {%for estudiante in estudiantes%}
         <tr>
-            <td>{{estudiante.Cedula}}</td>
+            <td>{{estudiante.Matricula}}</td>
             <td>{{estudiante.Nombres}}</td>
             <td>{{estudiante.Apellido_paterno}} {{estudiante.Apellido_materno}}</td>
             <td>{{estudiante.CodigoCarrera}}</td>
+            <td><a href="editar_estudiante/{{estudiante.Cedula}}">Editar estudiante</a></td>
             <td><a href="eliminar_estudiante/{{estudiante.Cedula}}">Eliminar estudiante</a></td>
         </tr>   
         {%endfor%}
-
     </table>
+
+    <a href="{%url 'index'%}">Ver carreras</a>
 
 </body>
 </html>

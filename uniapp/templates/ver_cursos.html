@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cursos</title>
+  </head>
+
+  <body>
+    {%if lista|length_is:'0'%}
+    <h1>No hay cursos para la carrera:{{carrera.Nombre}}</h1>
+
+    {%else%}
+    <h1>Cursos para la carrera: {{carrera.Nombre}}</h1>
+
+      <table border="1">
+        <thead>
+            <th>Nombre</th>
+            <th>Docente</th>
+            <th>Creditos</th>
+            <th>Codigo</th>
+        </thead>
+
+        <!-- Lista de todos los cursos que tenemos en la lista -->
+          {%for c in lista%} 
+          <tr>
+            <td>{{c.Nombre}}</td>
+            <td>{{c.Docente}}</td>
+            <td>{{c.Creditos}}</td>
+            <td>{{c.Codigo}}</td>
+          </tr>
+          {%endfor%} 
+      </table>
+    {%endif%}
+
+    <a href="{%url 'index'%}">Volver a inicio</a>
+</body>
+</html>

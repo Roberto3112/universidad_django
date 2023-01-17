@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursos disponibles</title>
+</head>
+<body>
+  <h1>Cursos registrados en la universidad</h1>
+  <h2>Cursos disponibles: {{cantidad}}</h2>
+
+  <a href="{%url 'nuevo_curso'%}">Agregar curso</a>
+
+  <table border="1">
+    
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Docente</th>
+        <th>Creditos</th>
+        <th>Codigo</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {%for curso in cursos%}
+      <tr>
+        <td>{{curso.Nombre}}</td>
+        <td>{{curso.Docente}}</td>
+        <td>{{curso.Creditos}}</td>
+        <td>{{curso.Codigo}}</td>
+        <td> <a href="editar_curso/{{curso.Codigo}}">Editar curso</a></td>
+        <td> <a href="eliminar_curso/{{curso.Codigo}}">Eliminar curso</a></td>
+      </tr>
+      {%endfor%}
+    </tbody>
+
+  </table>
+
+  <a href="{%url 'index'%}">Volver a inicio</a>
+</body>
+</html>

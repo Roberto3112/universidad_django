@@ -7,16 +7,72 @@
     <title>Agregar estudiante</title>
 </head>
 <body>
-    <h1>Agregar nuevo estudiante</h1>
-    <form method="POST">
-        {%csrf_token%}
-    <table>
-        {{estudianteForm}}
-    </table>
-    
-    <button type="submit">Enviar</button> <br>
+  <h1>Agregar nuevo estudiante</h1>
 
-    <a href="{%url 'index'%}">Volver a inicio</a>
-    </form>
+  <form action='.' method="POST">
+    {%csrf_token%}
+
+    <div>
+      <label for="Cedula">Cédula</label>
+      <input type="text" name="Cedula" id="Cedula" maxlength="10" required>
+    </div>
+
+
+    <div>
+      <label for="Nombres">Nombres</label>
+      <input type="text" name="Nombres" id="Nombres" required>
+    </div>
+
+    <div>
+      <label for="Apellido_paterno">Apellido paterno</label>
+      <input type="text" name="Apellido_paterno" id="Apellido_paterno" required>
+    </div>
+
+    <div>
+      <label for="Apellido_materno">Apellido materno</label>
+      <input type="text" name="Apellido_materno" id="Apellido_materno" required>
+    </div>
+
+    <div>
+      <label for="fecha_nacimiento">Fecha de nacimiento</label>
+      <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" required>
+    </div>
+
+    <div>
+      <label for="sexo">Sexo</label>
+      <select name="sexo" id="sexo">
+        <option value="" selected>--------</option>
+        <option value="M">Masculino</option>
+        <option value="F">Femenino</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="id_CodigoCarrera">Codigo de carrera:</label>
+      <select name="CodigoCarrera" id="id_CodigoCarrera" required>
+        <option value="" selected>--------</option>
+        {%for carrera in carreras%}
+        <option value={{carrera.Codigo}}>{{carrera.Nombre}}</option>
+        {%endfor%}
+      </select>
+    </div>
+    
+    <div>
+      <label for="id_Vigencia">Vigencia</label>
+
+      <select name="Vigencia" required id="id_Vigencia">
+        <option value="" selected>--------</option>
+        <option value="1">Vigente</option>
+        <option value="0">No vigente</option>
+      </select>
+    </div>
+
+    <div>
+      <button type="submit">Enviar</button>
+    </div>
+    
+  </form>
+  <a href="{%url 'estudiantes'%}">Volver al inicio</a>
+
 </body>
 </html>

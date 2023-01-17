@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar estudiante</title>
+</head>
+<body>
+
+    <h1>Editar estudiante</h1>
+    <form method="POST">
+        <table>
+            {{form}}
+        </table>
+
+        <button type="submit">Enviar</button>
+
+        {%csrf_token%}
+    </form>    
+
+    <a href="{%url 'estudiantes'%}">Volver al inicio</a>
+</body>
+</html>

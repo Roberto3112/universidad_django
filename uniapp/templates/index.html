@@ -16,7 +16,8 @@
     </div>
 
     <a href="{%url 'nueva_carrera'%}">Agregar carreras</a>
-    <a href="{%url 'estudiantes'%}"> Estudiantes</a>
+    <a href="{%url 'estudiantes'%}"> Ver estudiantes</a>
+    <a href="{%url 'cursos'%}">Cursos disponibles</a>
 
     <table border="1">
       
@@ -25,9 +26,6 @@
         <th>Codigo</th>
         <th>Nombre</th>
         <th>Duración</th>
-        <th></th>
-        <th></th>
-        <th></th>
         </tr>
       </thead>
 
@@ -37,9 +35,10 @@
           <td>{{carrera.Codigo}}</td>
           <td>{{carrera.Nombre}}</td>
           <td>{{carrera.Duracion}}</td>
-          <td><a href="">Ver estudiantes</a></td>
+          <td><a href="ver_estudiantes/{{carrera.Codigo}}">Ver estudiantes</a></td>
           <td><a href="eliminar_carrera/{{carrera.Codigo}}">Eliminar carrera</a></td>
           <td><a href="editar_carrera/{{carrera.Codigo}}">Editar carrera</a></td>
+          <td><a href="ver_cursos/{{carrera.Codigo}}">Ver cursos</a></td>
         </tr>
         {%endfor%}
       </tbody>
